@@ -12,24 +12,6 @@ import os
 from models.model import split_up_model
 from utils.losses import SymmetricCrossEntropy
 
-class EnergyModel(nn.Module):
-    def __init__(self, model):
-        super(EnergyModel, self).__init__()
-        self.f = model
-
-    def classify(self, x):
-        penult_z = self.f(x)
-        return penult_z
-
-    def forward(self, x, y=None):
-        logits = self.classify(x)
-        if y is None:
-            return logits.logsumexp(1), logits
-        else:
-            return torch.gather(logits, 1, y[:, None]), logits
-
-
-##############################################################################################################
 @ADAPTATION_REGISTRY.register()
 class CoTTA(TTAMethod):
     def __init__(self, cfg, model, num_classes):
@@ -81,23 +63,7 @@ class CoTTA(TTAMethod):
 
         imgs_test = x[0]
 
-        #######################################3333#######################################3333
-
-        # # Create the prediction of the anchor (source) model
-        anchor_prob = torch.nn.functional.softmax(self.model_anchor(imgs_test), dim=1).max(1)[0]
-
-        # Augmentation-averaged Prediction
-        ema_outputs = []
-        if anchor_prob.mean(0) < self.ap:
-            for _ in range(32):
-                outputs_ = self.model_ema(self.transform(imgs_test)).detach()
-                ema_outputs.append(outputs_)
-
-            # Threshold choice discussed in supplementary
-            outputs_ema = torch.stack(ema_outputs).mean(0)
-        else:
-            # Create the prediction of the teacher model
-            outputs_ema = self.model_ema(imgs_test)
+        #######################################3333#######################################333
 
         features_test = self.feature_extractor(imgs_test)
         outputs_test = self.classifier(features_test)
@@ -136,7 +102,7 @@ class CoTTA(TTAMethod):
         loss_self_training = (0.5 * self.symmetric_cross_entropy(outputs_test, outputs_ema) + 0.5 * self.symmetric_cross_entropy(outputs_aug_test, outputs_ema)).mean(0)
         loss = loss_self_training +  loss_align_unif
 
-        return 0.3 * outputs_test + 0.7 * outputs_ema, loss
+        return 0.5 * outputs_test + 0.5 * outputs_ema, loss
 
     def calculate_uniformity_loss(self, centers, smoothed_weights_matrix, t=2.0):
         distance_matrix = torch.cdist(centers, centers, p=2).pow(2)
