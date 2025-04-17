@@ -13,7 +13,7 @@ from models.model import split_up_model
 from utils.losses import SymmetricCrossEntropy
 
 @ADAPTATION_REGISTRY.register()
-class CoTTA(TTAMethod):
+class TCA(TTAMethod):
     def __init__(self, cfg, model, num_classes):
         super().__init__(cfg, model, num_classes)
 
