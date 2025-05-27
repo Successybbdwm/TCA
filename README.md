@@ -1,55 +1,3 @@
-# Online Test-time Adaptation
-This is an open source online test-time adaptation repository based on PyTorch. It is joint work by Robert A. Marsden and Mario Döbler. It is also the official repository for the following works:
-- [Introducing Intermediate Domains for Effective Self-Training during Test-Time](https://arxiv.org/abs/2208.07736)
-- [Robust Mean Teacher for Continual and Gradual Test-Time Adaptation](https://arxiv.org/abs/2211.13081) (CVPR2023)
-- [Universal Test-time Adaptation through Weight Ensembling, Diversity Weighting, and Prior Correction](https://arxiv.org/abs/2306.00650) (WACV2024)
-- [A Lost Opportunity for Vision-Language Models: A Comparative Study of Online Test-time Adaptation for Vision-Language Models](https://arxiv.org/abs/2405.14977) (CVPR2024 MAT Workshop Community Track)
-
-<details>
-<summary>Cite</summary>
-
-```
-@article{marsden2022gradual,
-  title={Gradual test-time adaptation by self-training and style transfer},
-  author={Marsden, Robert A and D{\"o}bler, Mario and Yang, Bin},
-  journal={arXiv preprint arXiv:2208.07736},
-  year={2022}
-}
-```
-
-```
-@inproceedings{dobler2023robust,
-  title={Robust mean teacher for continual and gradual test-time adaptation},
-  author={D{\"o}bler, Mario and Marsden, Robert A and Yang, Bin},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={7704--7714},
-  year={2023}
-}
-```
-
-```
-@inproceedings{marsden2024universal,
-  title={Universal Test-time Adaptation through Weight Ensembling, Diversity Weighting, and Prior Correction},
-  author={Marsden, Robert A and D{\"o}bler, Mario and Yang, Bin},
-  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
-  pages={2555--2565},
-  year={2024}
-}
-```
-
-```
-@article{dobler2024lost,
-  title={A Lost Opportunity for Vision-Language Models: A Comparative Study of Online Test-time Adaptation for Vision-Language Models},
-  author={D{\"o}bler, Mario and Marsden, Robert A and Raichle, Tobias and Yang, Bin},
-  journal={arXiv preprint arXiv:2405.14977},
-  year={2024}
-}
-```
-
-</details>
-
-We encourage contributions! Pull requests to add methods are very welcome and appreciated.
-
 ## Prerequisites
 To use the repository, we provide a conda environment.
 ```bash
@@ -140,7 +88,7 @@ In case your directory names deviate from the ones specified in the mapping dict
 
 We provide config files for all experiments and methods. Simply run the following Python file with the corresponding config file.
 ```bash
-python test_time.py --cfg cfgs/[ccc/cifar10_c/cifar100_c/imagenet_c/imagenet_others/domainnet126]/[source/norm_test/norm_alpha/tent/memo/rpl/eta/eata/rdumb/sar/cotta/rotta/adacontrast/lame/gtta/rmt/roid/tpt].yaml
+python test_time.py --cfg cfgs/[ccc/cifar10_c/cifar100_c/imagenet_c/imagenet_others/domainnet126]/[source/norm_test/norm_alpha/tent/memo/rpl/eta/eata/rdumb/sar/cotta/rotta/adacontrast/lame/gtta/rmt/roid/tpt/tca].yaml
 ```
 
 For imagenet_others, the argument `CORRUPTION.DATASET` has to be passed:
