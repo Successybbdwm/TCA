@@ -172,6 +172,7 @@ python test_time.py --cfg cfgs/gtta.yaml LIST_NAME_SRC clear_highway_train.txt L
 
 
 ### Citation
+```bash
 @inproceedings{ni2025maintaining,
   title={Maintaining consistent inter-class topology in continual test-time adaptation},
   author={Ni, Chenggong and Lyu, Fan and Tan, Jiayao and Hu, Fuyuan and Yao, Rui and Zhou, Tao},
@@ -179,3 +180,5 @@ python test_time.py --cfg cfgs/gtta.yaml LIST_NAME_SRC clear_highway_train.txt L
   pages={15319--15328},
   year={2025}
 }
+```
+
