@@ -45,16 +45,6 @@ A brief overview of the repository's main features is provided below:
   - `mixed_domains_correlated` Mixed domains and sorted by class label.
   - Combinations like `gradual_correlated` or `reset_each_shift_correlated` are also possible.
 
-- **Methods**
-  - The repository currently supports the following methods: BN-0 (source), BN-alpha, BN-1, [TENT](https://openreview.net/pdf?id=uXl3bZLkr3c),
-  [MEMO](https://openreview.net/pdf?id=vn74m_tWu8O), [ETA](https://arxiv.org/abs/2204.02610), [EATA](https://arxiv.org/abs/2204.02610),
-  [CoTTA](https://arxiv.org/abs/2203.13591), [AdaContrast](https://arxiv.org/abs/2204.10377), [LAME](https://arxiv.org/abs/2201.05718), 
-  [SAR](https://arxiv.org/abs/2302.12400), [RoTTA](https://arxiv.org/abs/2303.13899), [RPL](https://arxiv.org/abs/2104.12928),
-  [RDumb](https://arxiv.org/abs/2306.05401), [SANTA](https://openreview.net/pdf?id=V7guVYzvE4), [CMF](https://openreview.net/forum?id=BllUWdpIOA),
-  [DeYO](https://openreview.net/forum?id=9w3iw8wDuE),
-  [GTTA](https://arxiv.org/abs/2208.07736), [RMT](https://arxiv.org/abs/2211.13081), and [ROID](https://arxiv.org/abs/2306.00650).
-  - While (all) aforementioned approaches can be used with [CLIP](https://arxiv.org/abs/2103.00020), we also support 
-  [TPT](https://arxiv.org/abs/2209.07511) and [VTE](...)
 
 - **Mixed Precision Training**
   - Almost all of the aforementioned methods (except SAR and GTTA) can be trained with mixed precision. This greatly 
@@ -179,21 +169,13 @@ If you choose highway as the test sequence, you have to change the source list a
 python test_time.py --cfg cfgs/gtta.yaml LIST_NAME_SRC clear_highway_train.txt LIST_NAME_TEST town04_dynamic_1200.txt CKPT_PATH_SEG ./ckpt/clear_highway/ckpt_seg.pth CKPT_PATH_ADAIN_DEC = ./ckpt/clear_highway/ckpt_adain.pth
 ```
 
-### CarlaTTA
-We provide the different datasets of CarlaTTA as individual zip-files on Google-Drive:
-+ clear [download](https://drive.google.com/file/d/19HUmZkL5wo4gY7w5cfztgNVga_uNSVUp/view?usp=sharing)
-+ day2night [download](https://drive.google.com/file/d/1R3br738UCPGryhWhJE-Uy4sCJW3FaVTr/view?usp=sharing)
-+ clear2fog  [download](https://drive.google.com/file/d/1LeNF9PpdJ7lbpsvNwGy9xpC-AYlPiwMI/view?usp=sharing)
-+ clear2rain [download](https://drive.google.com/file/d/1TJfQ4CjIOJtrOpUCQ7VyqKBVYQndGNa_/view?usp=sharing)
-+ dynamic [download](https://drive.google.com/file/d/1jb1qJMhOSJ48XUQ7eRqT7agnDK9OBwox/view?usp=sharing)
-+ dynamic-slow [download](https://drive.google.com/file/d/1RTciKaw2LhlQ4ecKMlarSKyOzsDgaurT/view?usp=sharing)
-+ clear-highway [download](https://drive.google.com/file/d/1lZlxwBVBSBAguONX9K6gI2NlWqAxECvB/view?usp=sharing)
-+ highway [download](https://drive.google.com/file/d/1Q_3iOuDK4t-W3lvsHwRddDqHTE8GEAIj/view?usp=sharing)
 
 
-### Acknowledgements
-+ Segmentation model is from AdaptSegNet [official](https://github.com/wasidennis/AdaptSegNet)
-+ CarlaTTA was generated using Carla [official](https://github.com/carla-simulator/carla)
-+ ASM [official](https://github.com/RoyalVane/ASM)
-+ SM-PPM [official](https://github.com/W-zx-Y/SM-PPM)
-+ MEMO [official](https://github.com/zhangmarvin/memo)
+### Citation
+@inproceedings{ni2025maintaining,
+  title={Maintaining consistent inter-class topology in continual test-time adaptation},
+  author={Ni, Chenggong and Lyu, Fan and Tan, Jiayao and Hu, Fuyuan and Yao, Rui and Zhou, Tao},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={15319--15328},
+  year={2025}
+}
