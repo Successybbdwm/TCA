@@ -18,10 +18,11 @@ from methods.cmf import CMF
 from methods.deyo import DeYO
 from methods.vte import VTE
 from methods.tpt import TPT
+from methods.tca import TCA
 
 __all__ = [
     'Source', 'BNTest', 'BNAlpha', 'BNEMA', 'TTAug',
     'CoTTA', 'RMT', 'SANTA', 'RoTTA', 'AdaContrast', 'GTTA',
     'LAME', 'MEMO', 'Tent', 'EATA', 'SAR', 'RPL', 'ROID',
-    'CMF', 'DeYO', 'VTE', 'TPT',
+    'CMF', 'DeYO', 'VTE', 'TPT', 'TCA',
 ]
